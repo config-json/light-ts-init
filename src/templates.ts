@@ -12,6 +12,7 @@ export type Template = {
         deps: [string, string][],
         dev: [string, string][]
     }
+    gitignore: string[]
 }
 
 export const templates: Record<string, Template> = {
@@ -37,12 +38,20 @@ export const templates: Record<string, Template> = {
             ]
         },
         scripts: {
+            dev: "ts-node -r tsconfig-paths/register src/index.ts",
             build: "rm -rf build/ && tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
+            start: "ts-node build/index.js",
             test: "jest --coverage",
             lint: "eslint src/**/*.ts --fix",
             format: "prettier --write .",
             precommit: "tsc && lint-staged",
-            // prepare: "husky"
         },
+        gitignore: [
+            "node_modules",
+            "build",
+            ".env",
+            // Jest coverage
+            "/coverage",
+        ]
     }
 }

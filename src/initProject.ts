@@ -1,6 +1,6 @@
 import fs from "fs"
 import path from "path"
-import { copyTemplateFiles, execCmd, installDeps, npmInit } from "./commands"
+import { copyTemplateFiles, execCmd, gitInit, installDeps, npmInit } from "./commands"
 import { templates } from "./templates"
 
 export default async function initProject(name: string) {
@@ -21,7 +21,7 @@ export default async function initProject(name: string) {
 
         await npmInit(name, template.scripts, options)
         await installDeps(template.packages, options)
-        await execCmd(`git init && git add . && git commit -m "init with light-ts-init"`, options, true)
+        await gitInit(template.gitignore, options)
     } catch (err) {
         console.error("Error initializing project:\n\n")
         console.error(err)

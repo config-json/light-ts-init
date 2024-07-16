@@ -1,6 +1,6 @@
 {
   "name": "light-ts-init",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Initializes a basic TS project",
   "main": "src/index.ts",
   "bin": {

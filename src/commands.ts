@@ -53,3 +53,13 @@ export async function installDeps(packages: { deps: [string, string][], dev: [st
     await execCmd(`npm install ${joinedDeps}`, options)
     await execCmd(`npm install --save-dev ${joinDevDeps}`, options)
 }
+
+export async function gitInit(gitignore: string[], options: { cwd: string }): Promise<void> {
+
+    const _gitignore = gitignore.join("\n")
+
+    // The .gitignore file won't be included in build
+    fs.writeFileSync(path.join(options.cwd, ".gitignore"), _gitignore)
+
+    await execCmd("git init && git add . && git commit -m 'init with light-ts-init'", options, true)
+}
