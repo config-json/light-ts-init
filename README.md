@@ -12,8 +12,7 @@ A package that initializes a TS project with devtools installed. Feature list:
 1. Install light-ts-init
 
 ```sh
-npm i light-ts-init
-yarn add light-ts-init
+npm i -g light-ts-init
 ```
 
 2. Run the script
