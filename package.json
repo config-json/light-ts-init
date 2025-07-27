@@ -1,25 +1,28 @@
 {
   "name": "light-ts-init",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Initializes a basic TS project",
   "author": "config.json",
   "license": "ISC",
   "main": "build/index.js",
   "scripts": {
-    "build": "tsc",
-    "preview": "ts-node src/index.ts",
-    "start": "node build/index.js"
+    "build": "rm -rf build/ && tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
+    "preview": "ts-node -r tsconfig-paths/register src/index.ts",
+    "start": "node build/index.js",
+    "prepublish": "npm run build"
   },
   "bin": {
-    "light-ts-init": "src/index.ts"
+    "light-ts-init": "build/index.js"
   },
   "devDependencies": {
     "@types/ncp": "^2.0.8",
-    "typescript": "^5.5.2"
+    "tsc-alias": "^1.8.16",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.5.2",
+    "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "ncp": "^2.0.0",
-    "ts-node": "^10.9.2"
+    "ncp": "^2.0.0"
   },
   "keywords": [],
   "directories": {

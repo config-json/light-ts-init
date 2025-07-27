@@ -1,30 +1,28 @@
-module.exports = {
-  env: {
-    es6: true,
-    node: true,
+import tseslint from 'typescript-eslint'
+
+export default [
+  ...tseslint.configs.recommended,
+  {
+    ignores: ['node_modules', 'build', 'coverage', '/*.js'],
   },
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: "module",
-  },
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-  ],
-  plugins: ["@typescript-eslint", "prettier", "unused-imports"],
-  rules: {
-    "prettier/prettier": [
-      "warn",
-      {
-        usePrettierrc: true,
+  {
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
       },
-    ],
-    "unused-imports/no-unused-imports": "warn",
-    "unused-imports/no-unused-vars": "off",
-    "prefer-const": "warn",
-    curly: "warn",
-    "@typescript-eslint/no-unused-vars": ["error"],
-  },
-  ignorePatterns: ["node_modules/", "build/", "/.gitignore"], // Add any other patterns you want to ignore
-};
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          varsIgnorePattern: '^_',
+          argsIgnorePattern: '^_',
+        },
+      ],
+      'prefer-const': 'warn',
+      curly: 'warn',
+    }
+  }
+]

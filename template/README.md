@@ -8,7 +8,6 @@ Include here the description of your project.
 
 ```sh
 npm i
-yarn add
 ```
 
 2. Build the project and run it
