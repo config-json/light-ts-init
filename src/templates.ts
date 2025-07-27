@@ -1,6 +1,6 @@
 import path from "path"
 
-
+export type Dependency = [string, string?]
 
 export type Template = {
     dir: string,
@@ -9,8 +9,8 @@ export type Template = {
      * Specify the version if needed in the second element of the array
      */
     packages: {
-        deps: [string, string][],
-        dev: [string, string][]
+        deps: Dependency[],
+        dev: Dependency[]
     }
     gitignore: string[]
 }
@@ -21,26 +21,26 @@ export const templates: Record<string, Template> = {
         packages: {
             deps: [],
             dev: [
-                ["@types/node", ""],
-                ["@typescript-eslint/parser", ""],
-                ["eslint", ""],
-                ["eslint-config-prettier", ""],
-                ["eslint-plugin-prettier", ""],
+                ["@types/node"],
+                ["@typescript-eslint/parser"],
+                ["eslint"],
+                ["eslint-config-prettier"],
+                ["eslint-plugin-prettier"],
                 ["eslint-plugin-unused-imports", "^3.2.0"],
-                ["husky", ""],
-                ["lint-staged", ""],
-                ["prettier", ""],
-                ["ts-jest", ""],
-                ["ts-node", ""],
-                ["tsc-alias", ""],
-                ["tsconfig-paths", ""],
-                ["typescript", ""]
+                ["husky"],
+                ["lint-staged"],
+                ["prettier"],
+                ["ts-jest"],
+                ["ts-node"],
+                ["tsc-alias"],
+                ["tsconfig-paths"],
+                ["typescript"]
             ]
         },
         scripts: {
             dev: "ts-node -r tsconfig-paths/register src/index.ts",
             build: "rm -rf build/ && tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
-            start: "ts-node build/index.js",
+            start: "node build/index.js",
             test: "jest --coverage",
             lint: "eslint src/**/*.ts --fix",
             format: "prettier --write .",
@@ -50,7 +50,6 @@ export const templates: Record<string, Template> = {
             "node_modules",
             "build",
             ".env",
-            // Jest coverage
             "/coverage",
         ]
     }
