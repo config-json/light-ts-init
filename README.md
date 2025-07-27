@@ -1,5 +1,8 @@
 # light-ts-init
 
+[![npm version][version-image]][npm-url]
+[![npm downloads][downloads-image]][npm-url]
+
 A package that initializes a TS project with devtools installed. Feature list:
 
 - Formatting with prettier
@@ -22,3 +25,8 @@ npx light-ts-init <project-name>
 ```
 
 This will automatically add the necessary depedencies and initialize Git
+
+[version-image]: https://img.shields.io/npm/v/light-ts-init.svg?style=flat
+[downloads-image]: https://img.shields.io/npm/dt/light-ts-init.svg?style=flat
+[npm-url]: https://www.npmjs.com/package/light-ts-init
+
