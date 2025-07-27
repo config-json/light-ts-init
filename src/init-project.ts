@@ -1,6 +1,6 @@
-import { gitInit, installDeps, npmInit } from "./commands"
+import { gitFirstCommit, huskyInit, installDeps, npmInit } from "./commands"
 import { templates } from "./templates"
-import { projectPath } from "./utils"
+import { execCommand, projectPath } from "./utils"
 import { copyFiles } from "./utils/copy-files"
 
 export const initProject = async (name: string, templateName?: string) => {
@@ -13,7 +13,10 @@ export const initProject = async (name: string, templateName?: string) => {
 
         await npmInit(name, template.scripts)
         await installDeps(template.packages)
-        await gitInit(template.gitignore)
+
+        await execCommand('git init')
+        await huskyInit(template.husky)
+        await gitFirstCommit(template.gitignore)
     } catch (err) {
         // FIXME: implement logger
         console.error("Error initializing project:\n\n")

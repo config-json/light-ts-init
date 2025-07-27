@@ -8,7 +8,8 @@ export const npmInit = async (name: string, scripts: Record<string, string>) => 
 
     packageJson.name = name
     packageJson.scripts = scripts
-    packageJson.main = "src/index.ts"
+    packageJson.main = "build/index.js"
+    packageJson.type = "module"
 
     writeJsonfile(packageJsonPath, packageJson)
 }

@@ -3,7 +3,7 @@
 A package that initializes a TS project with devtools installed. Feature list:
 
 - Formatting with prettier
-- Tests with Jest
+- Tests with Vitest
 - Pre-commit hook that lints and formats with husky and lint-staged
 - Aliasing
 
