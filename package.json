@@ -23,9 +23,5 @@
   },
   "dependencies": {
     "ncp": "^2.0.0"
-  },
-  "keywords": [],
-  "directories": {
-    "test": "test"
   }
 }

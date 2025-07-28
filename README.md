@@ -3,12 +3,14 @@
 [![npm version][version-image]][npm-url]
 [![npm downloads][downloads-image]][npm-url]
 
-A package that initializes a TS project with devtools installed. Feature list:
+A package that initializes a general-purpose TS project with devtools installed. Feature list:
 
-- Formatting with prettier
-- Tests with Vitest
-- Pre-commit hook that lints and formats with husky and lint-staged
+- Formatting (prettier)
+- Tests (vitest)
+- Pre-commit hook (husky/lint-staged) 
 - Aliasing
+
+Feel free to submit a PR to add or modify templates.
 
 ## Getting started
 
@@ -24,9 +26,8 @@ npm i -g light-ts-init
 npx light-ts-init <project-name>
 ```
 
-This will automatically add the necessary depedencies and initialize Git
+This will automatically add the necessary depedencies and initialize Git.
 
 [version-image]: https://img.shields.io/npm/v/light-ts-init.svg?style=flat
 [downloads-image]: https://img.shields.io/npm/dt/light-ts-init.svg?style=flat
 [npm-url]: https://www.npmjs.com/package/light-ts-init
-
